@@ -8,8 +8,8 @@
 	<description>Pom to be inherited by all lcogt projects.</description>
 
 	<scm>
-		<connection>scm:svn:svn://svn/repos/telsoft/Lco/lcogt-pom/branches/0.2.x</connection>
-		<developerConnection>scm:svn:svn+ssh://svn/repos/telsoft/Lco/lcogt-pom/branches/0.2.x</developerConnection>
+		<connection>scm:svn:http://versionsba/svn/telsoft/Lco/lcogt-pom/branches/0.2.x</connection>
+		<developerConnection>scm:svn:http://versionsba/svn/telsoft/Lco/lcogt-pom/branches/0.2.x</developerConnection>
 	</scm>
 
 
