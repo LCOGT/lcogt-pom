@@ -4,12 +4,12 @@
 	<artifactId>lcogt-pom</artifactId>
 	<packaging>pom</packaging>
 	<name>Super pom</name>
-	<version>0.4.0</version>
+	<version>0.4.1-SNAPSHOT</version>
 	<description>Pom to be inherited by all lcogt projects.</description>
 
 	<scm>
-		<connection>scm:svn:http://versionsba/svn/telsoft/Lco/lcogt-pom/tags/0.4.0</connection>
-		<developerConnection>scm:svn:http://versionsba/svn/telsoft/Lco/lcogt-pom/tags/0.4.0</developerConnection>
+		<connection>scm:svn:http://versionsba/svn/telsoft/Lco/lcogt-pom/branches/0.4.x</connection>
+		<developerConnection>scm:svn:http://versionsba/svn/telsoft/Lco/lcogt-pom/branches/0.4.x</developerConnection>
 	</scm>
 	
 	<dependencies>
