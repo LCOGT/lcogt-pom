@@ -5,7 +5,7 @@
    <artifactId>lcogt-pom</artifactId>
    <packaging>pom</packaging>
    <name>Super pom</name>
-   <version>0.6.0-SNAPSHOT</version>
+   <version>0.6.0</version>
    <description>Pom to be inherited by all lcogt projects.</description>
 
    <organization>
@@ -24,33 +24,33 @@
 
    <properties>
       <!-- Versions for LCOGT projects -->
-      <commons.version>0.1.0-SNAPSHOT</commons.version>
-      <jtcs.version>2.11.0-SNAPSHOT</jtcs.version>
-      <instrument.version>2.11.0-SNAPSHOT</instrument.version>
-      <pubSub.version>0.15.0-SNAPSHOT</pubSub.version>
-      <schemas.version>0.16.0-SNAPSHOT</schemas.version>
-      <telemetry.version>0.10.0-SNAPSHOT</telemetry.version>
-      <telemetry-utils.version>0.1.0-SNAPSHOT</telemetry-utils.version>
-      <jcil-version>0.9.0-SNAPSHOT</jcil-version>
-      <jtcsCommon-version>0.2.0-SNAPSHOT</jtcsCommon-version>
-      <enclosure-version>0.3.1-SNAPSHOT</enclosure-version>
-      <harvest-version>0.5.0-SNAPSHOT</harvest-version>
-      <reduction-version>0.2.0-SNAPSHOT</reduction-version>
-      <sequencer-version>0.3.0-SNAPSHOT</sequencer-version>
-      <services-version>0.2.0-SNAPSHOT</services-version>
-      <site-version>0.3.0-SNAPSHOT</site-version>
-      <facilityServices-version>0.1.0-SNAPSHOT</facilityServices-version>
+      <commons.version>0.1.0</commons.version>
+      <jtcs.version>2.11.0</jtcs.version>
+      <instrument.version>2.11.0</instrument.version>
+      <pubSub.version>0.15.0</pubSub.version>
+      <schemas.version>0.16.0</schemas.version>
+      <telemetry.version>0.10.0</telemetry.version>
+      <telemetry-utils.version>0.1.0</telemetry-utils.version>
+      <jcil-version>0.9.0</jcil-version>
+      <jtcsCommon-version>0.2.0</jtcsCommon-version>
+      <enclosure-version>0.3.1</enclosure-version>
+      <harvest-version>0.5.0</harvest-version>
+      <reduction-version>0.2.0</reduction-version>
+      <sequencer-version>0.3.0</sequencer-version>
+      <services-version>0.2.0</services-version>
+      <site-version>0.3.0</site-version>
+      <facilityServices-version>0.1.0</facilityServices-version>
       <!-- Versions for third-party projects -->
       <jade.version>4.0.1-2</jade.version>
-      <jtpoint-version>18.13-0-SNAPSHOT</jtpoint-version>
-      <jtpk-version>1.11-0-SNAPSHOT</jtpk-version>
-      <jtcspk-version>8.4-0-SNAPSHOT</jtcspk-version>
-      <sla-version>11.0508-0-SNAPSHOT</sla-version>
-      <fitsheader-version>0.1.0-SNAPSHOT</fitsheader-version>
-      <jstarsearch-version>0.1.0-SNAPSHOT</jstarsearch-version>
+      <jtpoint-version>18.13-0</jtpoint-version>
+      <jtpk-version>1.11-0</jtpk-version>
+      <jtcspk-version>8.4-0</jtcspk-version>
+      <sla-version>11.0508-0</sla-version>
+      <fitsheader-version>0.1.0</fitsheader-version>
+      <jstarsearch-version>0.1.0</jstarsearch-version>
       <sextractor-version>2.5.0</sextractor-version>
-      <wcsfit-version>0.1.0-SNAPSHOT</wcsfit-version>
-      <reduction-server-version>0.1.0-SNAPSHOT</reduction-server-version>
+      <wcsfit-version>0.1.0</wcsfit-version>
+      <reduction-server-version>0.1.0</reduction-server-version>
    </properties>
 
    <!-- Centralised dependency management -->
