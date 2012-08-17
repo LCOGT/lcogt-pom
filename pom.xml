@@ -1,114 +1,267 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.lcogt</groupId>
-	<artifactId>lcogt-pom</artifactId>
-	<packaging>pom</packaging>
-	<name>Super pom</name>
-	<version>0.3.1</version>
-	<description>Pom to be inherited by all lcogt projects.</description>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>org.lcogt</groupId>
+   <artifactId>lcogt-pom</artifactId>
+   <packaging>pom</packaging>
+   <name>Super pom</name>
+   <version>0.3.0-SNAPSHOT</version>
+   <description>Pom to be inherited by all lcogt projects.</description>
 
-	<scm>
-		<connection>scm:svn:http://versionsba/svn/telsoft/Lco/lcogt-pom/trunk</connection>
-		<developerConnection>scm:svn:http://versionsba/svn/telsoft/Lco/lcogt-pom/trunk</developerConnection>
-	</scm>
+   <organization>
+      <name>Las Cumbres Observatory</name>
+      <url>http://www.lcogt.net/</url>
+   </organization>
 
-	<reporting>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-                                <configuration>
-                                    <reportOutputDirectory>/opt/javadocs</reportOutputDirectory>
-				    <destDir>${pom.artifactId}</destDir>
-                                </configuration>
-			</plugin>
-		</plugins>
-	</reporting>
+   <!-- SCM information required by buildnumber-maven-plugin. Not used (it 
+      uses 'svn info'), but fails if it's not here. -->
+   <scm>
+      <connection>scm:svn:http://versionsba/svn/telsoft/Lco/lcogt-pom/branches/0.3.x</connection>
+      <developerConnection>scm:svn:http://versionsba/svn/telsoft/Lco/lcogt-pom/branches/0.3.x</developerConnection>
+      <url>http://versionsba/svn/telsoft/Lco/lcogt-pom/branches/0.3.x</url>
+   </scm>
+
+   <!-- Centralised dependency management -->
+   <dependencyManagement>
+      <dependencies>
+         <!-- External artifacts -->
+         <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+         </dependency>
+         <dependency>
+            <groupId>cds.astro</groupId>
+            <artifactId>astro</artifactId>
+            <version>1.2.3</version>
+         </dependency>
+         <dependency>
+            <groupId>hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>1.8.0.7</version>
+         </dependency>
+         <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.5</version>
+         </dependency>
+         <dependency>
+            <groupId>org.python</groupId>
+            <artifactId>jython</artifactId>
+            <version>2.5.3</version>
+         </dependency>
+         <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.8.3</version>
+         </dependency>
+         <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.servlet</artifactId>
+            <version>10.0-b28</version>
+         </dependency>
+         <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>8.0.0.M3</version>
+         </dependency>
+      </dependencies>
+   </dependencyManagement>
 
 
+   <!-- Common dependencies across all projects -->
+   <dependencies>
+      <dependency>
+         <groupId>junit</groupId>
+         <artifactId>junit</artifactId>
+         <version>4.10</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>org.mockito</groupId>
+         <artifactId>mockito-all</artifactId>
+         <version>1.9.5-rc1</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>log4j</groupId>
+         <artifactId>log4j</artifactId>
+         <version>1.2.17</version>
+      </dependency>
+   </dependencies>
 
-	<build>
+   <reporting>
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>2.8</version>
+         </plugin>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jxr-plugin</artifactId>
+            <version>2.3</version>
+         </plugin>
+         <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>versions-maven-plugin</artifactId>
+            <version>1.2</version>
+            <reportSets>
+               <reportSet>
+                  <reports>
+                     <report>dependency-updates-report</report>
+                     <report>plugin-updates-report</report>
+                     <report>property-updates-report</report>
+                  </reports>
+               </reportSet>
+            </reportSets>
+         </plugin>
+      </plugins>
+   </reporting>
 
-		<!-- To define the plugin version in your parent POM -->
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-javadoc-plugin</artifactId>
-					<version>2.5</version>
-				</plugin>
-			</plugins>
-		</pluginManagement>
+   <build>
+
+      <!-- To define the plugin version in your parent POM -->
+      <pluginManagement>
+         <plugins>
+            <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-javadoc-plugin</artifactId>
+               <version>2.8</version>
+            </plugin>
+            <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-help-plugin</artifactId>
+               <version>2.1.1</version>
+            </plugin>
+            <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-dependency-plugin</artifactId>
+               <version>2.3</version>
+            </plugin>
+            <plugin>
+               <groupId>org.codehaus.mojo</groupId>
+               <artifactId>versions-maven-plugin</artifactId>
+               <version>1.2</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.0-beta-7</version>
+            </plugin>
+         </plugins>
+      </pluginManagement>
 
 
-		<!-- Webdav extension for deployment -->
-		<extensions>
-			<extension>
-				<groupId>org.apache.maven.wagon</groupId>
-				<artifactId>wagon-webdav</artifactId>
-				<version>1.0-beta-2</version>
-			</extension>
-		</extensions>
+      <!-- Webdav extension for deployment -->
+      <extensions>
+         <extension>
+            <groupId>org.apache.maven.wagon</groupId>
+            <artifactId>wagon-webdav</artifactId>
+            <version>1.0-beta-2</version>
+         </extension>
+      </extensions>
 
-		<!-- Build information i.e. repository revision at build time -->
-		<resources>
-			<resource>
-				<filtering>true</filtering>
-				<directory>src/main/resources/</directory>
-				<includes>
-					<include>**/*</include>
-				</includes>
-			</resource>
-		</resources>
+      <plugins>
+         <plugin>
+            <inherited>true</inherited>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+               <source>1.6</source>
+               <target>1.6</target>
+            </configuration>
+         </plugin>
+         <plugin>
+             <groupId>org.apache.maven.plugins</groupId>
+             <artifactId>maven-dependency-plugin</artifactId>
+         </plugin>
+         <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>versions-maven-plugin</artifactId>
+         </plugin>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+         </plugin>
+         <plugin>
+             <groupId>org.apache.maven.plugins</groupId>
+             <artifactId>maven-release-plugin</artifactId>
+         </plugin>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>2.1.2</version>
+            <executions>
+               <execution>
+                  <id>attach-sources</id>
+                  <phase>verify</phase>
+                  <goals>
+                     <goal>jar-no-fork</goal>
+                  </goals>
+               </execution>
+            </executions>
+         </plugin>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-help-plugin</artifactId>
+         </plugin>
+         <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>buildnumber-maven-plugin</artifactId>
+            <version>1.0</version>
+            <executions>
+               <execution>
+                  <phase>validate</phase>
+                  <goals>
+                     <goal>create</goal>
+                  </goals>
+               </execution>
+            </executions>
+            <configuration>
+               <doCheck>false</doCheck>
+               <doUpdate>false</doUpdate>
+            </configuration>
+         </plugin>
+         
 
-		<plugins>
-			<plugin>
-				<inherited>true</inherited>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>buildnumber-maven-plugin</artifactId>
-				<version>1.0-beta-1</version>
-				<executions>
-					<execution>
-						<phase>validate</phase>
-						<goals>
-							<goal>create</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<doCheck>false</doCheck>
-					<doUpdate>true</doUpdate>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.5</version>
-			</plugin>
-		</plugins>
-	</build>
+         <!-- Include Subversion revision number in manifest -->
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>2.3.1</version>
+            <configuration>
+               <archive>
+                  <manifest>
+                     <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                     <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>                 
+                  </manifest>
+                  <!-- Override default implementation entries with Subversion metadata -->
+                  <manifestEntries>
+                     <Implementation-Title>${scmBranch}</Implementation-Title>
+                     <Implementation-Version>${buildNumber}</Implementation-Version>
+                  </manifestEntries>
+               </archive>
+            </configuration>
+         </plugin>
+      </plugins>
+   </build>
 
-	<!-- Remote repository deployment -->
-	<distributionManagement>
-		<repository>
-			<id>versionsba-releases</id>
-			<name>versionsba-releases</name>
-			<url>dav:http://versionsba:8080/artifactory/libs-releases-local</url>
-		</repository>
-		<snapshotRepository>
-			<id>versionsba-snapshots</id>
-			<name>versionsba-snapshots</name>
-			<url>dav:http://versionsba:8080/artifactory/libs-snapshots-local</url>
-		</snapshotRepository>
-	</distributionManagement>
+   <!-- Remote repository deployment -->
+   <distributionManagement>
+      <repository>
+         <id>nexus</id>
+         <name>releases</name>
+         <url>http://buildsba:8081/nexus/content/repositories/releases</url>
+      </repository>
+      <snapshotRepository>
+         <id>nexus</id>
+         <name>snapshots</name>
+         <url>http://buildsba:8081/nexus/content/repositories/snapshots</url>
+      </snapshotRepository>
+      <site>
+         <id>buildsba</id>
+         <url>scp://buildsba.lco.gtn/opt/javadocs/</url>
+      </site>
+   </distributionManagement>
 
 </project>
 
