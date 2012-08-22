@@ -4,7 +4,7 @@
    <artifactId>lcogt-pom</artifactId>
    <packaging>pom</packaging>
    <name>Super pom</name>
-   <version>0.2.1-SNAPSHOT</version>
+   <version>0.2.0-SNAPSHOT</version>
    <description>Pom to be inherited by all lcogt projects.</description>
    <organization>
       <name>Las Cumbres Observatory</name>
@@ -16,6 +16,7 @@
       <connection>scm:svn:http://versionsba/svn/telsoft/Lco/lcogt-pom/branches/0.2.x</connection>
       <developerConnection>scm:svn:http://versionsba/svn/telsoft/Lco/lcogt-pom/branches/0.2.x</developerConnection>
       <url>http://versionsba/svn/telsoft/Lco/lcogt-pom/branches/0.2.x</url>
+      <tag>HEAD</tag>
    </scm>
    <!-- Centralised dependency management -->
    <dependencyManagement>
@@ -149,6 +150,18 @@
                <groupId>org.codehaus.mojo</groupId>
                <artifactId>versions-maven-plugin</artifactId>
                <version>1.2</version>
+            </plugin>
+            <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-site-plugin</artifactId>
+               <version>3.1</version>
+               <dependencies>
+                  <dependency><!-- add support for ssh/scp -->
+                     <groupId>org.apache.maven.wagon</groupId>
+                     <artifactId>wagon-ssh</artifactId>
+                     <version>1.0</version>
+                  </dependency>
+               </dependencies>
             </plugin>
          </plugins>
       </pluginManagement>
