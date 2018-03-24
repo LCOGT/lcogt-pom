@@ -318,11 +318,14 @@
             <plugin>
                 <inherited>true</inherited>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.5</version>
+                <version>3.7.0</version>
                 <configuration>
                     <source>10</source>
                     <target>10</target>
-                    <compilerArgs><arg>--illegal-access=permit</arg></compilerArgs>
+                    <compilerArgs>
+                        <arg>--add-modules</arg><arg>java.xml.bind,java.xml.ws</arg>
+                        <arg>--add-exports</arg><arg>java.base/sun.net=ALL-UNNAMED</arg>
+                    </compilerArgs>
                 </configuration>
             </plugin>
             <plugin>
@@ -420,6 +423,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.19.1</version>
                 <configuration>
+                    <argLine>--add-modules java.xml.bind</argLine>
                     <systemPropertyVariables>
                         <javax.xml.accessExternalDTD>all</javax.xml.accessExternalDTD>
                         <javax.xml.accessExternalSchema>all</javax.xml.accessExternalSchema>
