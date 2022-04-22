@@ -388,21 +388,43 @@
             </plugin>
         </plugins>
     </build>
-    <!-- Remote repository deployment -->
-    <distributionManagement>
-        <repository>
-            <id>nexus</id>
-            <name>releases</name>
-            <url>http://buildsba.lco.gtn:8081/nexus/content/repositories/releases</url>
-        </repository>
-        <snapshotRepository>
-            <id>nexus</id>
-            <name>snapshots</name>
-            <url>http://buildsba.lco.gtn:8081/nexus/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <site>
-            <id>buildsba</id>
-            <url>scp://buildsba.lco.gtn/opt/javadocs/</url>
-        </site>
-    </distributionManagement>
+    <profiles>
+      <profile>
+        <id>buildsba</id>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+        <distributionManagement>
+            <repository>
+                 <id>nexus</id>
+                 <name>releases</name>
+                 <url>http://buildsba.lco.gtn:8081/nexus/content/repositories/releases</url>
+            </repository>
+            <snapshotRepository>
+                <id>nexus</id>
+                <name>snapshots</name>
+                <url>http://buildsba.lco.gtn:8081/nexus/content/repositories/snapshots</url>
+            </snapshotRepository>
+            <site>
+                <id>buildsba</id>
+                <url>scp://buildsba.lco.gtn/opt/javadocs/</url>
+            </site>
+        </distributionManagement>
+      </profile>
+      <profile>
+        <id>github</id>
+        <distributionManagement>
+            <repository>
+                 <id>github-lcogt</id>
+                 <name>Github LCOGT Maven Repository</name>
+                 <url>https://maven.pkg.github.com/lcogt/maven-pkgs</url>
+            </repository>
+            <snapshotRepository>
+                 <id>github-lcogt</id>
+                 <name>Github LCOGT Maven Repository</name>
+                 <url>https://maven.pkg.github.com/lcogt/maven-pkgs</url>
+            </snapshotRepository>
+        </distributionManagement>
+      </profile>
+    </profiles>
 </project>
