@@ -5,14 +5,14 @@
     <artifactId>lcogt-pom</artifactId>
     <packaging>pom</packaging>
     <name>Super pom</name>
-    <version>2.0.0</version>
+    <version>3.0.0</version>
     <description>Pom to be inherited by all lcogt projects.</description>
     <organization>
         <name>Las Cumbres Observatory</name>
         <url>http://www.lcogt.net/</url>
     </organization>
     <prerequisites>
-        <maven>3.8</maven>
+        <maven>3.9</maven>
     </prerequisites>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
