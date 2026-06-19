@@ -5,7 +5,7 @@
     <artifactId>lcogt-pom</artifactId>
     <packaging>pom</packaging>
     <name>Super pom</name>
-    <version>3.0.0</version>
+    <version>3.1.0</version>
     <description>Pom to be inherited by all lcogt projects.</description>
     <organization>
         <name>Las Cumbres Observatory</name>
@@ -17,7 +17,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <joda.time.version>2.10.5</joda.time.version>
-        <guice.version>5.1.0</guice.version>
+        <guava.version>31.0.1-jre</guava.version>
+        <guice.version>7.0.0</guice.version>
         <nar.plugin.version>3.5.0</nar.plugin.version>
         <sla.version>12.130524-5</sla.version>
         <jtcspk.version>9.71-6</jtcspk.version>
@@ -89,7 +90,7 @@
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>28.1-jre</version>
+                <version>${guava.version}</version>
             </dependency>
             <dependency>
                 <groupId>joda-time</groupId>
