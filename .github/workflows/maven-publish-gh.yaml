@@ -1,0 +1,13 @@
+name: Publish to Github Maven
+on:
+  push:
+    tags:
+      - "v*"
+
+    branches:
+      - "**"
+
+jobs:
+  build:
+    uses: LCOGT/reusable-workflows/.github/workflows/maven-publish-gh.yaml@main
+    secrets: inherit
